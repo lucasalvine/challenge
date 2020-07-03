@@ -1,13 +1,17 @@
 FROM node:alpine
 
-WORKDIR /app
+RUN mkdir -p /home/node/api/node_modules && chown -R node:node /home
 
-COPY package*.json ./
+WORKDIR /home/node/api
 
-RUN npm install
+COPY package.json yarn.* ./
 
-COPY . .
+USER node
+
+RUN yarn
+
+COPY --chown=node:node . . 
 
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+ENTRYPOINT [ "./init.sh" ]

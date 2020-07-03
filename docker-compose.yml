@@ -16,5 +16,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes: 
-      - /app/node_modules
-      - .:/app
+      - .:/home/node/api
+      - /home/node/api/node_modules
+    ports:
+      - '3000:3000'
