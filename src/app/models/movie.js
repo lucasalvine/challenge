@@ -7,7 +7,7 @@ class Movie extends Model {
       releaseDate: Sequelize.DATE,
       censorship: Sequelize.BOOLEAN,
       director: Sequelize.STRING,
-      casting: Sequelize.STRING
+      casting: Sequelize.DataTypes.ARRAY(Sequelize.DataTypes.STRING)
     }, {
       sequelize,
     });

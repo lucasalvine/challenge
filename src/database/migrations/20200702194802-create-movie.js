@@ -20,7 +20,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       casting: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.DataTypes.ARRAY(Sequelize.DataTypes.STRING)
       },
       createdAt: {
         allowNull: false,
