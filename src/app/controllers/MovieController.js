@@ -1,5 +1,5 @@
-const MovieRepository = require('../repositories/MovieRepository');
-const MovieValidator = require('../validations/MovieValidator');
+const MovieCreateService = require('../services/MovieCreateService');
+const MovieFindService = require('../services/MovieFindService');
 
 class MovieController {
   async store(request, response) {
@@ -19,27 +19,41 @@ class MovieController {
       casting
     };
 
-    const validatedMovie = MovieValidator.lengthCasting(movie.casting);
-    const validatedMoviesNames = MovieValidator.compareMoviesNames(movie.movieName);
-    console.log("VALIDATOR NAME", validatedMoviesNames);
+    const saveMovie = await MovieCreateService.execute(movie)
+      .catch(function (err) {
+        return response.status(404).json({
+          error: 404,
+          message: err.parent.detail
+        });
+      });
 
-    validatedMovie && validatedMoviesNames ?
-      await MovieRepository.save(movie) :
-      response.status(400).json({ message: "Can not save the movie" });
+    if (!saveMovie) {
+      response.status(404).json({
+        error: 404,
+        message: 'Can not save the movie, the casting is greater than 10'
+      });
+    };
 
-    response.status(200).json({ message: "Save it" });
+    return response.json({
+      status: 201,
+      ...movie,
+    });
   };
 
   async index(request, response) {
-    const movies = await MovieRepository.findAll(request.query.censorship);
+    const movies = await MovieFindService.execute(request.query.censorship);
 
     if (!movies[0]) {
-      return response.status(400).json({ message: "Can not find movies with this consorship" });
-    } else {
-      return response.json({
-        movies: movies,
+      return response.status(404).json({
+        error: 404,
+        message: "Can not find movies with this censorship"
       });
     };
+
+    return response.json({
+      status: 201,
+      movies: movies,
+    });
   };
 };
 

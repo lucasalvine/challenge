@@ -14,4 +14,4 @@ COPY --chown=node:node . .
 
 EXPOSE 3000
 
-ENTRYPOINT [ "./init.sh" ]
+ENTRYPOINT [ "chmod", "+", "./init.sh" ]

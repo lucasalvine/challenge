@@ -1,4 +1,3 @@
-
 const Movie = require('../models/movie');
 
 class MovieRepository {
@@ -11,6 +10,8 @@ class MovieRepository {
       casting: request.casting
     });
 
+    return movie_save;
+
   };
 
   async findAll(request) {
@@ -21,20 +22,6 @@ class MovieRepository {
     });
 
     return movies;
-  };
-
-  async findByName(movieName) {
-    return await Movie.findAll({
-      where: {
-        movieName: movieName
-      }
-    }).then(function (docs) {
-      if (!docs.length) {
-        console.log("USUARIO nao CADASTRADO");
-      } else {
-        console.log("USURIO CADASTRADO")
-      }
-    });
   };
 }
 
