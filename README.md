@@ -1,4 +1,4 @@
-![donus](./donus.png)
+![donus](./donus.jpg)
 # Donus Challenge
 
 ## :coffee: Requisitos do teste
@@ -53,7 +53,7 @@ $ docker-compose up -d
 
 POST http://localhost:3000/movies - rota que vai salvar o filme no banco de dados.
 
-GET http://localhost:3333/movies?censorship=true - rota que faz a busca do filme passando a censura (true - para censurado / false - para não censurado).
+GET http://localhost:3000/movies?censorship=true - rota que faz a busca do filme passando a censura (true - para censurado / false - para não censurado).
 
 ### Executando os testes da API localmente
 
