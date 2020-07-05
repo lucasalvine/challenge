@@ -21,21 +21,20 @@ class MovieController {
 
     const saveMovie = await MovieCreateService.execute(movie)
       .catch(function (err) {
-        return response.status(404).json({
-          error: 404,
+        response.status(404).render({
           message: err.parent.detail
         });
+        return;
       });
 
     if (!saveMovie) {
       response.status(404).json({
-        error: 404,
         message: 'Can not save the movie, the casting is greater than 10'
       });
+      return;
     };
 
-    return response.json({
-      status: 201,
+    return response.status(201).json({
       ...movie,
     });
   };
@@ -44,14 +43,13 @@ class MovieController {
     const movies = await MovieFindService.execute(request.query.censorship);
 
     if (!movies[0]) {
-      return response.status(404).json({
-        error: 404,
+      response.status(404).json({
         message: "Can not find movies with this censorship"
       });
+      return;
     };
 
-    return response.json({
-      status: 201,
+    return response.status(201).json({
       movies: movies,
     });
   };

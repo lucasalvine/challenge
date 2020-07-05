@@ -10,7 +10,7 @@ Além disso, o sistema tem uma lib de testes (unitários), para trazer mais cert
 Para os testes, foi eleborado um roteiro que é composto dos seguintes casos:
 1 - Salvar os dados do filme corretos, com todos os campos - com sensura.
 2 - Salvar os dados do filme corretos, com todos os campos - sem sensura.
-3 - Tentar salvar o filme com o mesmo npme.
+3 - Tentar salvar o filme com o mesmo nome.
 4 - Tentar salvar o filme com no máximo 10 atores.
 5 - Tentar salvar o filme com mais de 11 atores.
 6 - Fazer a busca por censura.
@@ -57,6 +57,9 @@ $ git clone https://github.com/lucasalvine/donus-challenge.git
 # Navegando para a pasta do projeto
 $ cd donus-challenge
 
+# Rodar os testes
+$ docker-compose exec app npm test
+
 # Rodar o docker
 $ docker-compose up -d
 
@@ -77,7 +80,7 @@ Execute as rotas que foram detalhadas acima.
 ```javascript
 {
 	"movieName":"Movie One",
-	"releaseDate": 19202012,
+	"releaseDate": "2021-01-01",
 	"censorship": false,
 	"director": "lucas",
 	"casting": ["lucas", "joao", "maria", "pedro", "paulo", "beatriz", "diego", "maysa", "eder", "gustavo"]

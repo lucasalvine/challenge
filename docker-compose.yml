@@ -1,22 +1,37 @@
 version: '3'
-volumes:
-  data:
 services:
   db:
+    container_name: "postgresql"
     image: postgres:9.6
     env_file: .env
+    restart: unless-stopped
     volumes:
-      - data:/var/lib/postgres/data
+      - 'data:/var/lib/db/data'
     environment:
-      - POSTGRES_USER=$DB_USE
+      - POSTGRES_USER=$DB_USER
       - POSTGRES_PASSWORD=$DB_PASSWORD
       - POSTGRES_DB=$DB_NAME
+    networks: 
+      - postgres-networks
   app:
+    container_name: "donus_challenge"
+    env_file: .env
     build:
       context: .
       dockerfile: Dockerfile
     volumes: 
       - .:/home/node/api
       - /home/node/api/node_modules
+    depends_on: 
+      - db
     ports:
-      - '3000:3000'
+      -  '3000:3000'
+    environment:
+      - DB_HOST=$DB_HOST
+      - DB_USER=$DB_USER
+      - DB_PASS=$DB_PASSWORD
+networks: 
+  postgres-networks:
+    driver: bridge
+volumes:
+  data: {}

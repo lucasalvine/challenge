@@ -1,10 +1,10 @@
-const Movie = require('../models/movie');
+const Movie = require('../models/Movie');
 
 class MovieRepository {
-  async save(request, response) {
+  async save(request) {
     const movie_save = await Movie.create({
       movieName: request.movieName,
-      releaseDate: request.releaseDate,
+      releaseDate: new Date(request.releaseDate).getTime(),
       censorship: request.censorship,
       director: request.director,
       casting: request.casting

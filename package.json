@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "dev": "nodemon src/server.js",
-    "start": "scr/server.js"
+    "pretest": "NODE_ENV=test sequelize db:migrate",
+    "test": "NODE_ENV=test jest --runInBand",
+    "posttest": "NODE_ENV=test npx sequelize-cli db:migrate:undo:all",
+    "dev": "nodemon src/server.js --ignore __tests__",
+    "start": "scr/server.js",
+    "migrate": "npx sequelize-cli db:migrate"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +30,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.1.0",
     "nodemon": "^2.0.4",
-    "sequelize-cli": "^6.1.0"
+    "sequelize-cli": "^6.1.0",
+    "supertest": "^4.0.2"
   }
 }
