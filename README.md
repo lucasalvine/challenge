@@ -47,8 +47,8 @@ src                 # Código da aplicação
 
 ```
 # Pré requisitos para rodar a aplicação
-$ Ter o Docker e docker-compose configurado na maquina.
-$ Altere o .env do projeto caso seja necessário.
+# Ter o Docker e docker-compose configurado na maquina.
+$ Altere o .env do projeto, está como .env.example.
 
 # Clonando o repositório
 $ git clone https://github.com/lucasalvine/donus-challenge.git
