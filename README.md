@@ -3,7 +3,7 @@
 
 ### :coffee: Requisitos do teste
 
-O Donus Challenge, constitui em elebora um sistema com duas rotas, sendo uma para salvar as informação no banco de dados (informações de um filme) e uma segunda rota, para fazer uma pesquisa, passando como parametro o tipo de censura do filme (neste caso, censurado, ou não - usei parametro boolean neste caso).
+O Donus Challenge, constitui em eleborar um sistema com duas rotas, sendo uma para salvar as informação no banco de dados (informações de um filme) e uma segunda rota, para fazer uma pesquisa, passando como parametro o tipo de censura do filme (neste caso, censurado, ou não - usei parametro boolean neste caso).
 
 Além disso, o sistema tem uma lib de testes, para trazer mais certeza de que está tudo certo com o que foi desenvolvido.
 
