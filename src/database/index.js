@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const Movie = require('../app/models/Movie');
 
-const databaseConfig = require('../config/database');
+const databaseConfig = require('../config/config.js');
 
 const models = [Movie];
 

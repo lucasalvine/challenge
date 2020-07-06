@@ -11,8 +11,6 @@ services:
       - POSTGRES_USER=$DB_USER
       - POSTGRES_PASSWORD=$DB_PASSWORD
       - POSTGRES_DB=$DB_NAME
-    networks: 
-      - postgres-networks
   app:
     container_name: "donus_challenge"
     env_file: .env
@@ -30,8 +28,5 @@ services:
       - DB_HOST=$DB_HOST
       - DB_USER=$DB_USER
       - DB_PASS=$DB_PASSWORD
-networks: 
-  postgres-networks:
-    driver: bridge
 volumes:
-  data: {}
+  data:

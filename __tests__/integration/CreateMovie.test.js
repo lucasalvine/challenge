@@ -111,5 +111,27 @@ describe('Create Movie', () => {
         done();
       });
   });
-
+  it('create movie with an exist name', function (done) {
+    request(app)
+      .post('/movies')
+      .send({
+        movieName: "O Auto da Compadecida",
+        releaseDate: "2020-02-02",
+        censorship: false,
+        director: "Guel Arraes",
+        casting: [
+          "Matheus Nachtergaele",
+          "Selton Mello",
+          "Rogério Cardoso",
+          "Lima Duarte"
+        ]
+      })
+      .set('Accept', 'application/json')
+      .expect(404)
+      .expect({ "message": "The movie with that name already exists" })
+      .end(function (err, res) {
+        if (err) return done(err);
+        done();
+      });
+  });
 });

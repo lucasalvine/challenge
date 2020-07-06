@@ -21,10 +21,9 @@ class MovieController {
 
     const saveMovie = await MovieCreateService.execute(movie)
       .catch(function (err) {
-        response.status(404).render({
-          message: err.parent.detail
+        return response.status(404).json({
+          message: 'The movie with that name already exists'
         });
-        return;
       });
 
     if (!saveMovie) {

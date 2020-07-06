@@ -1,3 +1,4 @@
 #!/bin/sh
+npx sequelize db:migrate:undo:all
 npm run migrate
-npm run dev
+npm run start

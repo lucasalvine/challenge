@@ -3,9 +3,9 @@
 
 ### :coffee: Requisitos do teste
 
-O teste para a Donus, constitui em elebora um sistema com duas rotas, sendo uma para salvar as informação no banco de dados (informações de um filme) e uma segunda rota, que era para fazer uma pesquisa, passando como parametro o tipo de censura do filme (neste caso, censurado, ou não - usei parametro boolean neste caso).
+O Donus Challenge, constitui em elebora um sistema com duas rotas, sendo uma para salvar as informação no banco de dados (informações de um filme) e uma segunda rota, para fazer uma pesquisa, passando como parametro o tipo de censura do filme (neste caso, censurado, ou não - usei parametro boolean neste caso).
 
-Além disso, o sistema tem uma lib de testes (unitários), para trazer mais certeza de que está tudo certo com o que foi desenvolvido.
+Além disso, o sistema tem uma lib de testes, para trazer mais certeza de que está tudo certo com o que foi desenvolvido.
 
 Para os testes, foi eleborado um roteiro que é composto dos seguintes casos:
 1 - Salvar os dados do filme corretos, com todos os campos - com sensura.
@@ -15,7 +15,6 @@ Para os testes, foi eleborado um roteiro que é composto dos seguintes casos:
 5 - Tentar salvar o filme com mais de 11 atores.
 6 - Fazer a busca por censura.
 7 - Fazer a busca sem censura.
-8 - Fazer a busca onde não retorna nenhum resultado.
 
 ### Tecnologias utilizadas
 
@@ -57,11 +56,11 @@ $ git clone https://github.com/lucasalvine/donus-challenge.git
 # Navegando para a pasta do projeto
 $ cd donus-challenge
 
-# Rodar os testes
-$ docker-compose exec app npm test
-
 # Rodar o docker
 $ docker-compose up -d
+
+# Rodar os testes
+$ docker-compose exec app npm test
 
 # APLICAÇÃO EXECUTANDO
 ```
@@ -86,6 +85,9 @@ Execute as rotas que foram detalhadas acima.
 	"casting": ["lucas", "joao", "maria", "pedro", "paulo", "beatriz", "diego", "maysa", "eder", "gustavo"]
 }
 ```
+
+Em caso de utilização do Insomnia [Insomnia](https://insomnia.rest/), pode utilizar as rotas já pré criadas aqui :point_down:
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)]
 ### Thats it ! :coffee:
 ---
 by Lucas Cunha
