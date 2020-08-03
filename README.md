@@ -46,8 +46,8 @@ src                 # Código da aplicação
 
 ```
 # Pré requisitos para rodar a aplicação
-$ Ter o Docker e docker-compose configurado na maquina.
-$ Altere o .env do projeto caso seja necessário.
+# Ter o Docker e docker-compose configurado na maquina.
+$ Altere o .env do projeto, está como .env.example.
 
 # Clonando o repositório
 $ git clone https://github.com/lucasalvine/challenge.git
@@ -86,9 +86,6 @@ Execute as rotas que foram detalhadas acima.
 	"casting": ["lucas", "joao", "maria", "pedro", "paulo", "beatriz", "diego", "maysa", "eder", "gustavo"]
 }
 ```
-
-Em caso de utilização do Insomnia [Insomnia](https://insomnia.rest/), pode utilizar as rotas já pré criadas aqui :point_down:
-[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Donus%20Challenge%20Routes&uri=https%3A%2F%2Fgithub.com%2Flucasalvine%2Fdonus-challenge%2Fblob%2Fmaster%2FInsomniaRoutes.json)
 
 ### Thats it ! :coffee:
 
