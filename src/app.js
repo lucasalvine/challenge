@@ -1,12 +1,12 @@
-require('dotenv').config({
-  path: process.env.NODE_ENV == "test" ? ".env.test" : ".env"
+require("dotenv").config({
+  path: process.env.NODE_ENV == "test" ? ".env.test" : ".env",
 });
 
-const express = require('express');
-const cors = require('cors');
-const routes = require('./routes');
+const express = require("express");
+const cors = require("cors");
+const movies = require("./routes/movies");
 
-require('./database');
+require("./database");
 
 class App {
   constructor() {
@@ -18,7 +18,7 @@ class App {
   routes() {
     this.server.use(cors());
     this.server.use(express.json());
-    this.server.use(routes);
+    this.server.use(movies);
   }
 }
 

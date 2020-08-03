@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   db:
     container_name: "postgresql"
@@ -6,24 +6,24 @@ services:
     env_file: .env
     restart: unless-stopped
     volumes:
-      - 'data:/var/lib/db/data'
+      - "data:/var/lib/db/data"
     environment:
       - POSTGRES_USER=$DB_USER
       - POSTGRES_PASSWORD=$DB_PASSWORD
       - POSTGRES_DB=$DB_NAME
   app:
-    container_name: "donus_challenge"
+    container_name: "challenge"
     env_file: .env
     build:
       context: .
       dockerfile: Dockerfile
-    volumes: 
+    volumes:
       - .:/home/node/api
       - /home/node/api/node_modules
-    depends_on: 
+    depends_on:
       - db
     ports:
-      -  '3000:3000'
+      - "3000:3000"
     environment:
       - DB_HOST=$DB_HOST
       - DB_USER=$DB_USER
